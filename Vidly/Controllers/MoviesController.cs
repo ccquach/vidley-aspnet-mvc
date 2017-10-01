@@ -15,8 +15,13 @@ namespace Vidly.Controllers
         {
             var movies = new List<Movie>
             {
-                new Movie = { Id = 1, Name = "Shrek" },
-                new Movie = { Id = 2, Name = "Wall-e" }
+                new Movie { Id = 1, Name = "Shrek" },
+                new Movie { Id = 2, Name = "Wall-e" }
+            };
+
+            var viewModel = new MoviesViewModel
+            {
+                Movies = movies
             };
 
             return View(movies);
