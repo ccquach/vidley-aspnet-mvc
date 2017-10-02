@@ -22,3 +22,11 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/* Set table styles for Customers and Movies pages */
+table, th, td {
+    border: 1px solid gray;
+    border-collapse: collapse;
+    padding: 15px;
+    text-align: left;
+}
