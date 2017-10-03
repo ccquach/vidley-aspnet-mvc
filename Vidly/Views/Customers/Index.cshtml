@@ -12,14 +12,18 @@
 else
 {
     <table class="lumen-override">
-        <tr>
-            <th>Customer</th>
-        </tr>
-        @foreach (var customer in Model.Customers)
-        {
+        <thead>
             <tr>
-                <td>@customer.Name</td>
+                <th>Customer</th>
             </tr>
-        }
+        </thead>
+        <tbody>
+            @foreach (var customer in Model.Customers)
+            {
+                <tr>
+                    <td>@customer.Name</td>
+                </tr>
+            }
+        </tbody>
     </table>
 }
