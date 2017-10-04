@@ -24,14 +24,19 @@ textarea {
 }
 
 /* Set table styles for Customers and Movies pages */
-#lumen-override * {
+/*#lumen-override * {
     border: 1px solid gray;
     text-align: left;
-}
+}*/
 table {
+    border: 1px solid #ddd;
     width: 100%;
     border-collapse: collapse;
-}   
+}
 td, th {
+    border: 1px solid #ddd;
     padding: 15px;
+}
+th {
+    border-bottom: 2px solid #ddd;
 }
