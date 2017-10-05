@@ -31,9 +31,10 @@ namespace Vidly.Controllers
         }
 
         // GET: Customers/Details
-        public ActionResult Details(int id)
+        [Route("Customers/Details/{id}")]
+        public ActionResult Details(int id, string name)
         {
-            return View();
+            return Content(name);
         }
     }
 }
