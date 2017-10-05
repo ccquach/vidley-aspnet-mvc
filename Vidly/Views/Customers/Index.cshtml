@@ -21,7 +21,7 @@ else
             @foreach (var customer in Model.Customers)
             {
                 <tr>
-                    <td><a href="#">@customer.Name</a></td>
+                    <td><a href="~/Customers/Details/@customer.Id">@customer.Name</a></td>
                 </tr>
             }
         </tbody>
