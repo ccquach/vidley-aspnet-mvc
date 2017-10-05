@@ -29,5 +29,11 @@ namespace Vidly.Controllers
             // Render Customer List View Model
             return View(viewModel);
         }
+
+        // GET: Customers/Details
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
     }
 }
