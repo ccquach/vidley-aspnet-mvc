@@ -21,7 +21,7 @@ else
             @foreach (var customer in Model.Customers)
             {
                 <tr>
-                    <td><a href="@Url.Action("Details", "Customers", new { id = @customer.Id, name = customer.Name })">@customer.Name</a></td>
+                    <td><a href="@Url.Action("Details", "Customers", new { id = @customer.Id })">@customer.Name</a></td>
                 </tr>
             }
         </tbody>
