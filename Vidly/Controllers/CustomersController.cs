@@ -34,7 +34,7 @@ namespace Vidly.Controllers
         [Route("Customers/Details/{id}")]
         public ActionResult Details(int id)
         {
-            return View();
+            return View(Session["Customer"]);
         }
     }
 }

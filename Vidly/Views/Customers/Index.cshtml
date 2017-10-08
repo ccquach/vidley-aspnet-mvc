@@ -21,6 +21,10 @@ else
             @foreach (var customer in Model.Customers)
             {
                 <tr>
+                    @{
+                        Session["Customer"] = @customer;
+                    }
+                        
                     <td><a href="@Url.Action("Details", "Customers", new { id = @customer.Id })">@customer.Name</a></td>
                 </tr>
             }
