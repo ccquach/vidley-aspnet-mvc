@@ -22,9 +22,11 @@ else
             {
                 <tr>
                     <td>
-                        <a href="@Url.Action("Details", "Customers", new { id = @customer.Id })">
+                        @*<a href="@Url.Action("Details", "Customers", new { id = @customer.Id, name = customer.Name })">
                         @customer.Name
-                        </a>
+                        </a>*@
+
+                        <a href="Customers/Details/@customer.Id?name=@customer.Name">@customer.Name</a>
                     </td>
                 </tr>
             }
