@@ -32,12 +32,12 @@ namespace Vidly.Controllers
 
         // GET: Customers/Details
         [Route("Customers/Details/{id}")]
-        public ActionResult Details(int id, string name)
+        public ActionResult Details(int id)
         {
             var customer = new Customer
             {
                 Id = id,
-                Name = name
+                Name = TempData["name"].ToString()
             };
             return View(customer);
         }
