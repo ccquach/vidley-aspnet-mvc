@@ -4,6 +4,29 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script>
+    var $CustomerURL = $('#CustomerURL');
+    $CustomerURL.live('click', function () {
+        // Grab customer information
+        var Name = $('CustomerURL').text();
+
+        // Edit the description
+        $.ajax({
+            type: "POST",
+            url: "/Details",
+            contentType: "application/json; charset=utf-8",
+            data: { name: Name },
+            dataType: "json",
+            success: function (result) {
+                alert('It worked!');
+            },
+            error: function (result) {
+                alert('It did not work.')
+            }
+        })
+    })
+</script>
+
 <h2>Customers</h2>
 @if (Model.Customers.Count == 0)
 {
@@ -22,13 +45,15 @@ else
             {
                 <tr>
                     <td>
+                        <a id="CustomerURL" href="Customers/Details/@customer.Id">@customer.Name</a>
+
                         @*<a href="@Url.Action("Details", "Customers", new { id = @customer.Id, name = customer.Name })">
                         @customer.Name
                         </a>*@
 
                         @*<a href="Customers/Details/@customer.Id?name=@customer.Name">@customer.Name</a>*@
 
-                        <a href="Customers/Details/@customer.Id" onclick="@{ TempData["name"] = @customer.Name; }">@customer.Name</a>
+                        @*<a href="Details/@customer.Id" onclick="@{ ViewData["name"] = @customer.Name; }">@customer.Name</a>*@
                     </td>
                 </tr>
             }

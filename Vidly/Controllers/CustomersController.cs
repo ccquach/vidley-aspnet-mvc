@@ -31,13 +31,14 @@ namespace Vidly.Controllers
         }
 
         // GET: Customers/Details
-        [Route("Customers/Details/{id}")]
-        public ActionResult Details(int id)
+        //[Route("Customers/Details/{id}")]
+        [HttpPost]
+        public ActionResult Details(int id, string name)
         {
             var customer = new Customer
             {
-                Id = id,
-                Name = TempData["name"].ToString()
+                //Id = id,
+                Name = name
             };
             return View(customer);
         }
