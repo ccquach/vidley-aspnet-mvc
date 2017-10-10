@@ -47,7 +47,9 @@ else
             {
                 <tr>
                     <td>
-                        <a id="CustomerURL" href="Customers/Details/@customer.Id" onclick="passCustomerName();">@customer.Name</a>
+                        @Html.ActionLink(customer.Name, "Details", "Customers", new { id = @customer.Id }, new { onclick = "passCustomerName();" })
+
+                        @*<a id="CustomerURL" href="Customers/Details/@customer.Id" onclick="passCustomerName();">@customer.Name</a>*@
 
                         @*<a href="@Url.Action("Details", "Customers", new { id = @customer.Id, name = customer.Name })">
                         @customer.Name
