@@ -4,27 +4,29 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<script>
-    var $CustomerURL = $('#CustomerURL');
-    $CustomerURL.live('click', function () {
-        // Grab customer information
-        var Name = $('CustomerURL').text();
+<script type="text/javascript">
+    function passCustomerName() {
+        var $CustomerURL = $('#CustomerURL');
+        $CustomerURL.live('click', function () {
+            // Grab customer information
+            var Name = $('CustomerURL').text();
 
-        // Edit the description
-        $.ajax({
-            type: "POST",
-            url: "/Details",
-            contentType: "application/json; charset=utf-8",
-            data: { name: Name },
-            dataType: "json",
-            success: function (result) {
-                alert('It worked!');
-            },
-            error: function (result) {
-                alert('It did not work.')
-            }
+            // Edit the description
+            $.ajax({
+                type: "GET",
+                url: "Customers/Details",
+                contentType: "application/json; charset=utf-8",
+                data: { name: Name },
+                dataType: "json",
+                success: function (result) {
+                    alert('It worked!');
+                },
+                error: function (result) {
+                    alert('It did not work.')
+                }
+            })
         })
-    })
+    }
 </script>
 
 <h2>Customers</h2>
@@ -45,7 +47,7 @@ else
             {
                 <tr>
                     <td>
-                        <a id="CustomerURL" href="Customers/Details/@customer.Id">@customer.Name</a>
+                        <a id="CustomerURL" href="Customers/Details/@customer.Id" onclick="passCustomerName();">@customer.Name</a>
 
                         @*<a href="@Url.Action("Details", "Customers", new { id = @customer.Id, name = customer.Name })">
                         @customer.Name

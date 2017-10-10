@@ -31,8 +31,8 @@ namespace Vidly.Controllers
         }
 
         // GET: Customers/Details
-        //[Route("Customers/Details/{id}")]
-        [HttpPost]
+        [HttpGet]
+        [Route("Customers/Details/{id}")]
         public ActionResult Details(int id, string name)
         {
             var customer = new Customer
