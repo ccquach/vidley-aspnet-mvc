@@ -4,29 +4,38 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script src="../Scripts/jquery-1.10.2.js"></script>
 <script type="text/javascript">
-    function passCustomerName() {
-        var $CustomerURL = $('#CustomerURL');
-        $CustomerURL.live('click', function () {
-            // Grab customer information
-            var Name = $('CustomerURL').text();
+    $(document).ready(function () {
+        alert("hello world");
+    })
 
-            // Edit the description
-            $.ajax({
-                type: "GET",
-                url: "Customers/Details",
-                contentType: "application/json; charset=utf-8",
-                data: { name: Name },
-                dataType: "json",
-                success: function (result) {
-                    alert('It worked!');
-                },
-                error: function (result) {
-                    alert('It did not work.')
-                }
-            })
+    $('a.CustomerURL').click(function () {
+        _this = $(this);
+        var testName = _this.text();
+        alert(testName);
+    })
+
+    var $CustomerURL = $('#CustomerURL');
+    $CustomerURL.live('click', function passCustomerName() {
+        // Grab customer information
+        var Name = $('.CustomerURL').text();
+
+        // Edit the description
+        $.ajax({
+            type: "GET",
+            url: "Customers/Details",
+            contentType: "application/json; charset=utf-8",
+            data: { name: Name },
+            dataType: "json",
+            success: function (result) {
+                alert('It worked!');
+            },
+            error: function (result) {
+                alert('It did not work.')
+            }
         })
-    }
+    })
 </script>
 
 <h2>Customers</h2>
@@ -47,7 +56,12 @@ else
             {
                 <tr>
                     <td>
-                        @Html.ActionLink(customer.Name, "Details", "Customers", new { id = @customer.Id }, new { onclick = "passCustomerName();" })
+                        <a class="CustomerURL" 
+                           href="@Url.Action("Details", "Customers", new { id = @customer.Id })">
+                            @customer.Name
+                        </a>
+
+                        @*@Html.ActionLink(customer.Name, "Details", "Customers", new { id = @customer.Id }, new { onclick = "passCustomerName();" })*@
 
                         @*<a id="CustomerURL" href="Customers/Details/@customer.Id" onclick="passCustomerName();">@customer.Name</a>*@
 
