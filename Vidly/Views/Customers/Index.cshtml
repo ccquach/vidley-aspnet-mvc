@@ -6,9 +6,9 @@
 
 <script src="../Scripts/jquery-1.10.2.js"></script>
 <script type="text/javascript">
-    $(document).ready(function () {
-        alert("hello world");
-    })
+    //$(document).ready(function () {
+    //    alert("hello world");
+    //})
 
     $('a.CustomerURL').click(function () {
         _this = $(this);
@@ -56,10 +56,14 @@ else
             {
                 <tr>
                     <td>
-                        <a class="CustomerURL" 
+                        @Html.ActionLink(customer.Name, "Details", "Customers",
+                               new { id = customer.Id },
+                               new { @class = "CustomerURL" })
+
+                        @*<a class="CustomerURL" 
                            href="@Url.Action("Details", "Customers", new { id = @customer.Id })">
                             @customer.Name
-                        </a>
+                        </a>*@
 
                         @*@Html.ActionLink(customer.Name, "Details", "Customers", new { id = @customer.Id }, new { onclick = "passCustomerName();" })*@
 
