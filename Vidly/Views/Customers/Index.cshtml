@@ -10,37 +10,39 @@
     //    alert("hello world");
     //})
 
-    $("a").click(function () {
-        alert("Anchor tag clicked.");
-    });
+    $(document).ready (function() {
+        $("a").click(function () {
+            alert("Anchor tag clicked.");
+        });
 
-    $("a.CustomerURL").click(function () {
-        alert("Link clicked!");
-        _this = $(this);
-        var testName = _this.text();
-        alert(testName);
-    });
+        $("a.CustomerURL").click(function () {
+            alert("Link clicked!");
+            _this = $(this);
+            var testName = _this.text();
+            alert(testName);
+        });
 
-    var $CustomerURL = $('#CustomerURL');
-    $CustomerURL.live('click', function passCustomerName() {
-        // Grab customer information
-        var Name = $('.CustomerURL').text();
+        var $CustomerURL = $('#CustomerURL');
+        $CustomerURL.live('click', function passCustomerName() {
+            // Grab customer information
+            var Name = $('.CustomerURL').text();
 
-        // Edit the description
-        $.ajax({
-            type: "GET",
-            url: "Customers/Details",
-            contentType: "application/json; charset=utf-8",
-            data: { name: Name },
-            dataType: "json",
-            success: function (result) {
-                alert('It worked!');
-            },
-            error: function (result) {
-                alert('It did not work.')
-            }
-        })
-    });
+            // Edit the description
+            $.ajax({
+                type: "GET",
+                url: "Customers/Details",
+                contentType: "application/json; charset=utf-8",
+                data: { name: Name },
+                dataType: "json",
+                success: function (result) {
+                    alert('It worked!');
+                },
+                error: function (result) {
+                    alert('It did not work.')
+                }
+            })
+        });
+    };
 </script>
 
 <h2>Customers</h2>
